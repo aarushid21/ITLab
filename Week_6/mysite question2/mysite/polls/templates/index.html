@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Numbers </title>
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <label for="roll_number">Roll Number</label>
+        <input type="number" id="roll_number" name="roll_number">
+        <label for="subject">Choose your Subject</label>
+        <select name="subject" id="subject">
+            <option value="chemistry">Chemistry</option>
+            <option value="physics">Physics</option>
+            <option vaue="biology">Biology</option>
+        </select>
+        <button type="submit">Submit details</button>
+    </form>
+</body>
