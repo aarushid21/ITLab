@@ -1,0 +1,43 @@
+<head>
+    <title> Employee Database </title>
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <h3 style="color:violet">Add New Product Information</h3><br><br>
+        <label for="name"> Title:</label><br>
+        <input type="text" name="name" id="name"><br><br>
+        <label for="cost">Cost:</label><br>
+        <input type="number" name="cost" id="cost"><br><br>
+        <label for="description">Description:</label><br>
+        <input type="text" name="description" id="description"><br><br>
+        <button type="submit">Register The Product</button><br>
+    </form>
+    <h3 style="color:violet"> All Available Products: </h3><br><br>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Salary</th>
+
+        </tr>
+        {% for item in query_results %}
+        <tr>
+            <td>{{ item.person_name }}</td>
+            <td>{{ item.company_name }}</td>
+            <td>{{ item.salary }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <ul>
+        {% for item in query_results %}
+        <li>
+            <div>Product Name: {{ item.title }}</div>
+            <div>Price: {{ item.price }}</div>
+            <div>Description: {{ item.description }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
