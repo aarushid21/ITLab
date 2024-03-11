@@ -1,0 +1,41 @@
+<head>
+    <title> Employee Database </title>
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <h3 style="color:violet">Add Employee New Information</h3><br><br>
+        <label for="name"> Employee Name:</label><br>
+        <input type="text" name="name" id="name"><br><br>
+        <h5 style="color:lightblue">Company details:</h5><br><br>
+        <label for="company">Company:</label><br>
+        <input type="text" name="company" id="company"><br><br>
+        <label for="salary">Salary:</label><br>
+        <input type="number" name="salary" id="salary"><br><br>
+        <h5 style="color:lightblue">Address details:</h5><br><br>
+        <label for="street">Street:</label><br>
+        <input type="text" name="street" id="street"><br><br>
+        <label for="city">City:</label><br>
+        <input type="text" name="city" id="city"><br><br>
+        <button type="submit">Register Employee</button><br>
+    </form>
+    <h3 style="color:violet">Employee Information</h3><br><br>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Salary</th>
+
+        </tr>
+        {% for item in query_results %}
+        <tr>
+            <td>{{ item.person_name }}</td>
+            <td>{{ item.company_name }}</td>
+            <td>{{ item.salary }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
